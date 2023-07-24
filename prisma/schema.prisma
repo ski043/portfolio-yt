@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Guestbook {
+  id         String   @id @default(uuid())
+  message    String
+  username   String
+  created_at DateTime @default(now())
+}
